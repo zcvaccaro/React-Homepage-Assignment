@@ -21,7 +21,8 @@ const Header = () => {
   const headerRef = useRef(null);
   const prevScrollPos = useRef(window.scrollY);
 
-  const handleClick = (anchor) => () => {
+  const handleClick = (anchor) => (e) => {
+    e.preventDefault();
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
     if (element) {
@@ -30,7 +31,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    const threshold = 10; // Minimum scroll delta to trigger hide/show
+    const threshold = 10;
     let ticking = false;
 
     const handleScroll = () => {
@@ -91,10 +92,10 @@ const Header = () => {
           {/* Internal Links */}
           <nav>
             <HStack spacing={8}>
-              <a href="/#projects" onClick={handleClick("projects")}>
+              <a href="#projects" onClick={handleClick("projects")}>
                 Projects
               </a>
-              <a href="/#contactme" onClick={handleClick("contactme")}>
+              <a href="#contactme" onClick={handleClick("contactme")}>
                 Contact Me
               </a>
             </HStack>

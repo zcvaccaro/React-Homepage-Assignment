@@ -76,7 +76,7 @@ const LandingSection = () => {
           <form
             onSubmit={async (e) => {
               e.preventDefault(); // Prevent default submit
-              
+
               // Mark all fields as touched so inline errors appear
               formik.setTouched({
                 firstName: true,
